@@ -21,7 +21,7 @@ const seo = {
 const greeting = {
   title: "Sanjeev Rana",
   logo_name: "SanjeevRana",
-  nickname: "layman_brother",
+  nickname: "Azure_Ninja",
   subTitle:
     "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
   resumeLink:
