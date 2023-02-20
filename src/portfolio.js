@@ -742,19 +742,19 @@ const contactPageData = {
     title: "Blogs",
     subtitle:
       "For individual fundamental empowerment, I like to write powerful lessons that create impact on each of the reader individually to change the core of their character.",
-    link: "https://ashutoshhathidara.wordpress.com",
+    link: "Coming Soon",
     avatar_image_path: "blogs_image.svg",
   },
   addressSection: {
     title: "Address",
     subtitle:
-      "Ambavadi vas, Kanodar, T.A.-Palanpur, Dist.-Banaskantha, Gujarat - 385520",
+      "Jee Aayaan Nu, India - 174305",
     avatar_image_path: "address_image.svg",
-    location_map_link: "https://goo.gl/maps/MpMqtRZytFchMkZ76",
+      location_map_link: "https://goo.gl/maps/bp64rCM8eYE6oWzJ8",
   },
   phoneSection: {
     title: "Phone Number",
-    subtitle: "+91 8320758513",
+      subtitle: "+91 9779547807",
   },
 };
 
