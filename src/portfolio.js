@@ -23,7 +23,10 @@ const greeting = {
   logo_name: "SanjeevRana",
   nickname: "Azure_Ninja",
   subTitle:
-    "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
+    ""Tech wizard alert! Watch out clouds, Sanjeev is taking over! ☁️✨“.
+“I am the 'Automation Guru' - even your breakfast is probably served by robots! 🤖“.
+Sanjeev Kumar Rana, the Cloud Specialist extraordinaire! 🚀 From Network Engineer to Cloud Guru, I like a tech chameleon adapting with the times. My passion for continuous learning and automation is a superpower, making processes smoother than ever! 💻🤖 Problem-solving is my middle name, and staying ahead of the tech game is my secret weapon. Together, we'll conquer the cloud and drive DevOps success in our organization. Let's innovate and create a tech revolution! 🌟😄
+",
   resumeLink:
     "https://drive.google.com/open?id=1XYpYhLeqCdyx_q6l0bQoC7RgwQjAjXPf",
   portfolio_repository: "https://github.com/reply2sanjeev/masterPortfolio",
