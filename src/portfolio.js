@@ -9,7 +9,7 @@ const settings = {
 const seo = {
   title: "Rana's Portfolio",
   description:
-    "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
+    "Dedicated and passionate Microsoft Cloud Specialist in Azure Cloud and DevOps Engineer with a relentless commitment to developing end-to-end products. Specialized in architecting sustainable and scalable social and technical systems within Azure Cloud, aiming to create meaningful impact through innovative solutions.",
   og: {
     title: "Sanjeev Rana Portfolio",
     type: "website",
@@ -23,10 +23,10 @@ const greeting = {
   logo_name: "SanjeevRana",
   nickname: "Azure_Ninja",
   subTitle:
-    ""Tech wizard alert! Watch out clouds, Sanjeev is taking over! ☁️✨“.
-“I am the 'Automation Guru' - even your breakfast is probably served by robots! 🤖“.
-Sanjeev Kumar Rana, the Cloud Specialist extraordinaire! 🚀 From Network Engineer to Cloud Guru, I like a tech chameleon adapting with the times. My passion for continuous learning and automation is a superpower, making processes smoother than ever! 💻🤖 Problem-solving is my middle name, and staying ahead of the tech game is my secret weapon. Together, we'll conquer the cloud and drive DevOps success in our organization. Let's innovate and create a tech revolution! 🌟😄
-",
+  " Tech wizard alert! Watch out clouds, Sanjeev is taking over! ☁️✨.Dedicated and passionate Microsoft Cloud Specialist in Azure Cloud and DevOps Engineer with a relentless commitment to developing end-to-end products. Specialized in architecting sustainable and scalable social and technical systems within Azure Cloud, aiming to create meaningful impact through innovative solutions.",
+ 
+ 
+
   resumeLink:
     "https://drive.google.com/open?id=1XYpYhLeqCdyx_q6l0bQoC7RgwQjAjXPf",
   portfolio_repository: "https://github.com/reply2sanjeev/masterPortfolio",
@@ -55,12 +55,7 @@ const socialMediaLinks = [
     fontAwesomeIcon: "fa-linkedin-in", // Reference https://fontawesome.com/icons/linkedin-in?style=brands
     backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
   },
-  {
-    name: "YouTube",
-    link: "https://www.youtube.com/channel/UC_amoXmmxSY9KusoDczDTXQ",
-    fontAwesomeIcon: "fa-youtube", // Reference https://fontawesome.com/icons/youtube?style=brands
-    backgroundColor: "#FF0000", // Reference https://simpleicons.org/?q=youtube
-  },
+  
   {
     name: "Gmail",
     link: "mailto:sanjeev.kmr2@gmail.com",
@@ -72,12 +67,14 @@ const socialMediaLinks = [
 const skills = {
   data: [
     {
-      title: "Data Science & AI",
+      title: "Azure Migration Specialist",
       fileName: "DataScienceImg",
       skills: [
-        "⚡ Developing highly scalable production ready models for various deeplearning and statistical use cases",
-        "⚡ Experience of working with Computer Vision and NLP projects",
-        "⚡ Complex quantitative modelling for dynamic forecasting and time series analysis",
+        "⚡Designed and implemented Azure migration strategies tailored to specific application workloads, ensuring minimal downtime and data integrity",
+        "⚡Utilized Azure Site Recovery (ASR) for replicating, failing over, and failing back on-premises virtual machines to Azure",
+        "⚡Managed data migration projects, leveraging Azure Data Migration Services and other tools to ensure seamless transition and optimization of resources",
+        "⚡Collaborated cross-functionally with stakeholders, including infrastructure teams, application developers, and business units, to align migration efforts with organizational goals",
+        "⚡Implemented monitoring, logging, and security measures in Azure environments, ensuring compliance with industry standards and best practices",
       ],
       softwareSkills: [
         {
@@ -87,38 +84,23 @@ const skills = {
             backgroundColor: "transparent",
           },
         },
-        {
-          skillName: "Keras",
-          fontAwesomeClassname: "simple-icons:keras",
-          style: {
-            backgroundColor: "white",
-            color: "#D00000",
-          },
-        },
-        {
-          skillName: "PyTorch",
-          fontAwesomeClassname: "logos-pytorch",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Python",
-          fontAwesomeClassname: "ion-logo-python",
-          style: {
-            backgroundColor: "transparent",
-            color: "#3776AB",
-          },
-        },
+        
       ],
     },
     {
-      title: "Full Stack Development",
+      title: "DevOps Architecture",
       fileName: "FullStackImg",
       skills: [
-        "⚡ Building responsive website front end using React-Redux",
-        "⚡ Developing mobile applications using Flutter, React Native and solo android apps using Kotlin",
-        "⚡ Creating application backend in Node, Express & Flask",
+        "⚡Designing and implementing CI/CD pipelines for automated build, test, and deployment processes. Azure Pipelines, Azure Repos, Azure Artifacts, and Release Management",
+        "⚡Proficient in creating and managing infrastructure using Azure Resource Manager (ARM) templates. Automation tools: PowerShell, Azure CLI",
+        "⚡Docker containerization and orchestration with Azure Kubernetes Service (AKS). Container registry management with Azure Container Registry",
+        "⚡Implementing monitoring solutions using Azure Monitor and Application Insights. Setting up logging and analytics with Azure Log Analytics",
+        "⚡Azure Boards for Agile project management. Collaborating with development and operations teams using Microsoft Teams",
+        "⚡Strong scripting skills using PowerShell for automation tasks. Git for version control and collaboration",
+        "⚡Design, implement, and manage Azure Monitor solutions for comprehensive infrastructure and application monitoring. Configure and deploy Azure Monitor agents to collect performance metrics, logs, and traces",
+        "⚡Integrate Terraform into CI/CD pipelines for automated infrastructure deployments.Collaborate with cross-functional teams to align Terraform configurations with application requirements",
+        "⚡Develop and maintain infrastructure code using Terraform to provision cloud resources. Implement reusable modules for common infrastructure patterns. Ensure consistency and repeatability in infrastructure deployment",
+        "⚡Monitor and triage alerts generated by Azure Monitor. Prioritize alerts based on severity and potential impact on services",
       ],
       softwareSkills: [
         {
@@ -128,122 +110,29 @@ const skills = {
             color: "#E34F26",
           },
         },
-        {
-          skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
-          style: {
-            color: "#1572B6",
-          },
-        },
-        {
-          skillName: "Sass",
-          fontAwesomeClassname: "simple-icons:sass",
-          style: {
-            color: "#CC6699",
-          },
-        },
-        {
-          skillName: "JavaScript",
-          fontAwesomeClassname: "simple-icons:javascript",
-          style: {
-            backgroundColor: "#000000",
-            color: "#F7DF1E",
-          },
-        },
-        {
-          skillName: "ReactJS",
-          fontAwesomeClassname: "simple-icons:react",
-          style: {
-            color: "#61DAFB",
-          },
-        },
-        {
-          skillName: "NodeJS",
-          fontAwesomeClassname: "simple-icons:node-dot-js",
-          style: {
-            color: "#339933",
-          },
-        },
-        {
-          skillName: "NPM",
-          fontAwesomeClassname: "simple-icons:npm",
-          style: {
-            color: "#CB3837",
-          },
-        },
-        {
-          skillName: "Yarn",
-          fontAwesomeClassname: "simple-icons:yarn",
-          style: {
-            color: "#2C8EBB",
-          },
-        },
-        {
-          skillName: "Gatsby",
-          fontAwesomeClassname: "simple-icons:gatsby",
-          style: {
-            color: "#663399",
-          },
-        },
-        {
-          skillName: "Flutter",
-          fontAwesomeClassname: "simple-icons:flutter",
-          style: {
-            color: "#02569B",
-          },
-        },
+
       ],
     },
     {
       title: "Cloud Infra-Architecture",
       fileName: "CloudInfraImg",
       skills: [
-        "⚡ Experience working on multiple cloud platforms",
-        "⚡ Hosting and maintaining websites on virtual machine instances along with integration of databases",
-        "⚡ Deploying deep learning models on cloud to use on mobile devices",
-        "⚡ Setting up streaming jobs from DB to Server or vice-versa on GCP and AWS",
+        "⚡Designing and implementing scalable and resilient cloud infrastructures on Azure.Defining architecture blueprints and best practices for cloud-based applications",
+        "⚡Designed and implemented Azure landing zones to establish a foundation for secure and compliant cloud environments. Developed standardized architectures for networking, identity and access management, and resource governance",
+        "⚡Integration of on-premises environments with Azure for hybrid cloud solutions.Designing secure and efficient VPN and ExpressRoute connections",
+        "⚡Implementing auto-scaling and load balancing for optimal resource utilization.Fine-tuning configurations for performance optimization",
+        "⚡Azure Security Center implementation for threat detection and response.Designing secure network architectures and implementing identity and access management",
+        "⚡Designing and implementing AVD environments for virtual desktop infrastructure (VDI).Configuring host pools, application groups, and managing virtual machines",
+        "⚡Optimizing cloud resources for cost efficiency.Implementing cost monitoring and governance strategies",
+        "⚡Azure Monitor and Application Insights for proactive monitoring",
       ],
       softwareSkills: [
-        {
-          skillName: "GCP",
-          fontAwesomeClassname: "simple-icons:googlecloud",
-          style: {
-            color: "#4285F4",
-          },
-        },
-        {
-          skillName: "AWS",
-          fontAwesomeClassname: "simple-icons:amazonaws",
-          style: {
-            color: "#FF9900",
-          },
-        },
+
         {
           skillName: "Azure",
           fontAwesomeClassname: "simple-icons:microsoftazure",
           style: {
             color: "#0089D6",
-          },
-        },
-        {
-          skillName: "Firebase",
-          fontAwesomeClassname: "simple-icons:firebase",
-          style: {
-            color: "#FFCA28",
-          },
-        },
-        {
-          skillName: "PostgreSQL",
-          fontAwesomeClassname: "simple-icons:postgresql",
-          style: {
-            color: "#336791",
-          },
-        },
-        {
-          skillName: "MongoDB",
-          fontAwesomeClassname: "simple-icons:mongodb",
-          style: {
-            color: "#47A248",
           },
         },
         {
@@ -577,7 +466,10 @@ const experience = {
           duration: "Jan2022 - PRESENT",
           location: "Montréal, Canada",
           description:
-            " Expertise in Architecting and Implementing Azure Service Offering, such as Azure cloud services, Azure storage, IIS, Azure Active Directory (AD), Azure Resource Manager (ARM), Blob Storage, Azure VMs, SQL Database, Azure Functions, Azure Service Fabric, Azure Monitor, and Azure Service Bus. Knowledge in Power Shell scripting for automation and to schedule tasks. Knowledge in automating build and deployment, infrastructure and processes for our projects. Continuous monitoring by creating rules and alerts using Azure Monitor. Knowledge in implementation of Azure load balancer. Implementation and configuring of azure backup. Proven ability to Analyze successfully an organization cloud migration, managing both classic & ARM portal, effectively used Power Shell to manage Azure services, troubleshooting access related issues. Knowledge on using and maintaining Azure Key Vault. Experience in blob storage and file storage. Providing best suggestions about replication policies LRS, GRS, RA-GRS and ZRS. Experience on Windows Azure (IaaS, PaaS), VSTS (CI/CD), Azure SQL, MS SQL, IIS, Azure Web Apps, Cloud services, Azure Storage, Traffic manager, PowerShell. Ensured application consistent Backups and automated daily snapshots leveraging automation Knowledge on data migration using Azure Storage Explorer and Life Cycle Management. Experience on branching and merging strategies/Policies. Integration of unit test cases in building pipeline. Deploying Azure virtual machines and monitoring through Nerdio Knowledge on configuring Self Hosted Agent and SPN - Service Principal Name. Having knowledge in configuring the Site-to-Site and Point-to-Site VPN connections. Managing Virtual disk allocation as per the Client & Application requirement. Managing Azure SQL Server user creation and Maintenance. Hands on experience on YAML. Experience on Terraform. Experience in Azure site recovery services and Azure Backup and Restoring Deleted VMs. Good presentation, customer support and trouble shooting skills.",
+            "⚡Designed and implemented Azure Virtual Desktop solutions, enhancing remote workforce productivity and flexibility.",
+           
+
+
           color: "#0879bf",
         },
         {
