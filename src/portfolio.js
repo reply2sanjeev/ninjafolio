@@ -120,46 +120,7 @@ const skills = {
 // Education Page
 const competitiveSites = {
   competitiveSites: [
-    {
-      siteName: "HackerRank",
-      iconifyClassname: "simple-icons:hackerrank",
-      style: {
-        color: "#2EC866",
-      },
-      profileLink: "https://www.hackerrank.com/layman_brother",
-    },
-    {
-      siteName: "Codechef",
-      iconifyClassname: "simple-icons:codechef",
-      style: {
-        color: "#5B4638",
-      },
-      profileLink: "https://www.codechef.com/users/ashutosh_1919",
-    },
-    {
-      siteName: "Codeforces",
-      iconifyClassname: "simple-icons:codeforces",
-      style: {
-        color: "#1F8ACB",
-      },
-      profileLink: "http://codeforces.com/profile/layman_brother",
-    },
-    {
-      siteName: "Hackerearth",
-      iconifyClassname: "simple-icons:hackerearth",
-      style: {
-        color: "#323754",
-      },
-      profileLink: "https://www.hackerearth.com/@ashutosh391",
-    },
-    {
-      siteName: "Kaggle",
-      iconifyClassname: "simple-icons:kaggle",
-      style: {
-        color: "#20BEFF",
-      },
-      profileLink: "https://www.kaggle.com/laymanbrother",
-    },
+
   ],
 };
 
@@ -414,7 +375,7 @@ const experience = {
   title: "Experience",
   subtitle: "Work, Learning Path, Honors & Awards",
   description:
-    "I have worked with many evolving startups as ML and DL Developer, Designer and Software Architect. I have also worked with some well established companies mostly as AI Developer. I love organising events and that is why I am also involved with many opensource communities as a representative.",
+    "With 15 years of experience in Sysadmin and Network admin roles, I have transitioned seamlessly into a Microsoft Cloud Specialist and DevOps Engineer. Leveraging my extensive background, I bring a wealth of expertise in cloud technologies, particularly within the Microsoft ecosystem, to optimize infrastructure, enhance security, and drive efficient DevOps practices. I am committed to delivering innovative solutions that align with organizational goals and contribute to the success of dynamic and scalable IT environments.",
   header_image_path: "experience.svg",
   sections: [
     {
