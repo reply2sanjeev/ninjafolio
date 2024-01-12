@@ -184,6 +184,24 @@ const certifications = {
       color_code: "#E2405F",
     },
     {
+      title: "Cisco Certified Network Associate Routing and Switching (CCNA Routing and Switching)",
+      subtitle: "Cisco",
+      logo_path: "cisco_ccna_R_26S.png",
+      certificate_link:
+        "https://www.credly.com/earner/earned/badge/18256d7d-a2d9-4a28-b15a-d169f4a0bdee",
+      alt_name: "CCNA",
+      color_code: "#E2405F",
+    },
+    {
+      title: "Getting Started in Cybersecurity 2.0",
+      subtitle: "Fortinet NSE",
+      logo_path: "forti.png",
+      certificate_link:
+        "https://www.credly.com/earner/earned/badge/199f04b8-7aec-47b5-ba75-066cb87eee3e",
+      alt_name: "Cyber Security",
+      color_code: "#E2405F",
+    },
+    {
       title: "Cloud Ninja",
       subtitle: "Micosoft Defender For Cloud",
       logo_path: "Ninja.png",
@@ -237,6 +255,16 @@ const certifications = {
         "https://simpli-web.app.link/e/D7kaW85Cpxb",
       alt_name: "Kubernetes",
       color_code: "#2AAFED",
+    },
+    {
+      title: "Scrum Foundation Professional Certificate SFPC (v2020)",
+      subtitle: "Scrum",
+      logo_path: "scrum.png",
+      certificate_link:
+        "https://drive.google.com/file/d/19zqyJ_dKhpy5L3t_oHSiQjTgfpR7kaRw/view?usp=share_link",
+      alt_name: "Scrum",
+      // color_code: "#f36c3d",
+      color_code: "#fffbf3",
     },
     {
       title: "OPSWAT Introduction to Critical Infrastructure Protection (ICIP)",
@@ -355,16 +383,6 @@ const certifications = {
       //alt_name: "Flutter International Hackathon",
       //color_code: "#2AAFED",
     //},
-    {
-      title: "Scrum Foundation Professional Certificate SFPC (v2020)",
-      subtitle: "Scrum",
-      logo_path: "scrum.png",
-      certificate_link:
-        "https://drive.google.com/file/d/19zqyJ_dKhpy5L3t_oHSiQjTgfpR7kaRw/view?usp=share_link",
-      alt_name: "Scrum",
-      // color_code: "#f36c3d",
-      color_code: "#fffbf3",
-    },
     // color_code: "#8C151599",
     // color_code: "#7A7A7A",
     // color_code: "#0C9D5899",
