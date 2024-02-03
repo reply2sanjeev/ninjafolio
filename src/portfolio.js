@@ -188,7 +188,7 @@ const certifications = {
       subtitle: "Cisco",
       logo_path: "cisco_ccna_R_26S.png",
       certificate_link:
-        "https://www.credly.com/earner/earned/badge/18256d7d-a2d9-4a28-b15a-d169f4a0bdee",
+        "https://www.credly.com/badges/18256d7d-a2d9-4a28-b15a-d169f4a0bdee",
       alt_name: "CCNA",
       color_code: "#E2405F",
     },
@@ -197,7 +197,7 @@ const certifications = {
       subtitle: "Fortinet NSE",
       logo_path: "forti.png",
       certificate_link:
-        "https://www.credly.com/earner/earned/badge/199f04b8-7aec-47b5-ba75-066cb87eee3e",
+        "https://www.credly.com/badges/199f04b8-7aec-47b5-ba75-066cb87eee3e",
       alt_name: "Cyber Security",
       color_code: "#E2405F",
     },
