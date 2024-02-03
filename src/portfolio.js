@@ -469,7 +469,7 @@ const experience = {
         {
           title: "Microsoft Learning",
           company: "Microsoft Corporation",
-          company_url: "https://www.microsoft.com/",
+          company_url: "https://learn.microsoft.com/en-us/users/ranasanjeev/",
           logo_path: "microsoft_logo.png",
           duration: "Jan 2021- Till date",
           location: "Online",
