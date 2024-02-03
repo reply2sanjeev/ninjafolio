@@ -484,10 +484,21 @@ const experience = {
       title: "Honors & Awards",
       experiences: [
         {
+          title: "Supporting Role",
+          company: "Tmotions",
+          company_url: "https://drive.google.com/file/d/1XxkpV5DygIHYb_DJ0tVbGO9ZktH9dPKd/view?usp=sharing",
+          logo_path: "tmotions.png",
+          duration: "March 2020 - April 2022",
+          location: "Bestech Business Tower- Mohali",
+          description:
+            "Best Supporting Role Awardee Amidst Covid-19 Challenges for DevOps Excellence and Team Leadership.",
+          color: "#4285F4",
+        },
+        {
           title: "Google Explore ML Facilitator",
           company: "Google",
           company_url: "https://about.google/",
-          logo_path: "google_logo.png",
+          logo_path: "tmotions.png",
           duration: "June 2019 - April 2020",
           location: "Hyderabad, Telangana",
           description:
@@ -495,7 +506,7 @@ const experience = {
           color: "#4285F4",
         },
       ],
-    },
+    },  
   ],
 };
 
