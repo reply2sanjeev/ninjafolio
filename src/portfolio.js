@@ -477,6 +477,17 @@ const experience = {
             "I'm excited to embark on a journey of continuous learning with Microsoft, exploring their comprehensive resources to deepen my understanding of both Microsoft technologies and DevOps practices.Engaging with Microsoft Learning is key to my goal of mastering not only Microsoft technologies but also adopting DevOps principles to streamline development processes.As I dive into Microsoft Learning, I'm eager to integrate DevOps methodologies into my skill set, ensuring seamless collaboration between development and operations teams while leveraging Microsoft's tools and best practices.",
           color: "#ee3c26",
         },
+        {
+          title: "Lifelong Learning",
+          company: "CertiProf",
+          company_url: "https://www.credly.com/badges/22569211-8861-40a6-b249-101406d13fdd",
+          logo_path: "CertiProf-Badge-LLL.png",
+          duration: "April 2026- Till date",
+          location: "Online",
+          description:
+            "I am honored to receive this badge, which acknowledges my steadfast commitment to lifelong learning. In our ever-changing digital world, this recognition highlights my qualities of an open, disciplined mind, constantly evolving to navigate and contribute to the expanding landscape of knowledge. I am dedicated to using and sharing my expertise to contribute to a more equal and better world. Thank you for this meaningful recognition.",
+          color: "#ee3c26",
+        },
 
       ],
     },
