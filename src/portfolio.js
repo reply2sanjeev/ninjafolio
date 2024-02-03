@@ -13,7 +13,7 @@ const seo = {
   og: {
     title: "Sanjeev Rana Portfolio",
     type: "website",
-    url: "https://www.ranasanjeev.live/",
+    url: "https://portfolio.ranasanjeev.online/",
   },
 };
 
