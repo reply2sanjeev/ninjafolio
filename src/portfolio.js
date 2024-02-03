@@ -488,7 +488,6 @@ const experience = {
             "I am honored to receive this badge, which acknowledges my steadfast commitment to lifelong learning. In our ever-changing digital world, this recognition highlights my qualities of an open, disciplined mind, constantly evolving to navigate and contribute to the expanding landscape of knowledge. I am dedicated to using and sharing my expertise to contribute to a more equal and better world. Thank you for this meaningful recognition.",
           color: "#ee3c26",
         },
-
       ],
     },
     {
