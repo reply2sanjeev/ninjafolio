@@ -494,6 +494,17 @@ const experience = {
       title: "Honors & Awards",
       experiences: [
         {
+          title: "Employee of the Month",
+          company: "Farenexus",
+          company_url: "https://drive.google.com/file/d/1pZxT13lhmALN8MczvZmn1RxJVklnRspb/view?usp=sharing",
+          logo_path: "farenexusgrouplogow.svg",
+          duration: "October 2022",
+          location: "Mohali",
+          description:
+            "Excellent team player and always enthusiastic with a solution oriented approach.",
+          color: "#4285F4",
+        },
+        {
           title: "Supporting Role",
           company: "Tmotions",
           company_url: "https://drive.google.com/file/d/1XxkpV5DygIHYb_DJ0tVbGO9ZktH9dPKd/view?usp=sharing",
