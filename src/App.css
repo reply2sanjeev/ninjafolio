@@ -6,6 +6,14 @@
   height: 40vmin;
 }
 
+.hello{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  /* background-color: aqua; */
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
