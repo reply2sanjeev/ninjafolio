@@ -497,7 +497,7 @@ const experience = {
           title: "Employee of the Month",
           company: "Farenexus",
           company_url: "https://drive.google.com/file/d/1pZxT13lhmALN8MczvZmn1RxJVklnRspb/view?usp=sharing",
-          logo_path: "farenexusgrouplogow.svg",
+          logo_path: "logo-farenexus.png",
           duration: "October 2022",
           location: "Mohali",
           description:
