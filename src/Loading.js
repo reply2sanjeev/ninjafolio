@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Picture from './components/Loader/NinjaMain.gif'
+import Picture from './components/Loader/HomeNinja.gif'
 const Loading = () => {
   return (
     <div className="hello">
