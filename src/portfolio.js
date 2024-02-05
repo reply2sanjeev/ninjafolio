@@ -509,7 +509,7 @@ const experience = {
           company: "Tmotions",
           company_url: "https://drive.google.com/file/d/1XxkpV5DygIHYb_DJ0tVbGO9ZktH9dPKd/view?usp=sharing",
           logo_path: "tmotions.png",
-          duration: "March 2020 - April 2022",
+          duration: "March 2020 - April 2021",
           location: "Bestech Business Tower- Mohali",
           description:
             "Best Supporting Role Awardee Amidst Covid-19 Challenges for DevOps Excellence and Team Leadership.",
