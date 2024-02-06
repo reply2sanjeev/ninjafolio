@@ -515,6 +515,17 @@ const experience = {
             "Best Supporting Role Awardee Amidst Covid-19 Challenges for DevOps Excellence and Team Leadership.",
           color: "#4285F4",
         },
+       {
+          title: "Employee of the Month",
+          company: "NVISH",
+          company_url: "https://www.nvish.com/",
+          logo_path: "nvish-logo-1.svg",
+          duration: "Oct 2011 - June 2016",
+          location: "Quark City Mohali",
+          description:
+            "I'm pleased to share that throughout my career, I've had the privilege of receiving numerous cash prizes rupees 5000 on multiple occasions. These prizes have been a testament to my dedication and hard work..",
+          color: "#4285F4",
+        },
         {
           title: "Excellence",
           company: "Competent",
