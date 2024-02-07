@@ -501,7 +501,7 @@ const experience = {
         {
           title: "ISC2 Candidate",
           company: "ISC",
-          company_url: "https://www.credly.com/badges/22569211-8861-40a6-b249-101406d13fdd",
+          company_url: "https://www.credly.com/badges/bcd45586-1224-4bf4-9a1b-5881b7554921",
           logo_path: "isc.png",
           duration: "Dec 2023 - Dec 2024",
           location: "Online",
