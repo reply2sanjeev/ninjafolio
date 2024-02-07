@@ -174,6 +174,16 @@ const certifications = {
       // color_code: "#2AAFED",
       color_code: "#47A048",
     },
+        {
+      title: "AZ-104: Azure Administrator",
+      subtitle: "Microsoft",
+      logo_path: "az.png",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/E87EF8A959ABDE48?sharingId=21537036736891C7",
+      alt_name: "Microsoft Azure Administrator",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
     {
       title: "Microsoft Security: Who Hacked? Challenge",
       subtitle: "CLOUD SKILLS CHALLENGE",
@@ -486,6 +496,17 @@ const experience = {
           location: "Online",
           description:
             "I am honored to receive this badge, which acknowledges my steadfast commitment to lifelong learning. In our ever-changing digital world, this recognition highlights my qualities of an open, disciplined mind, constantly evolving to navigate and contribute to the expanding landscape of knowledge. I am dedicated to using and sharing my expertise to contribute to a more equal and better world. Thank you for this meaningful recognition.",
+          color: "#ee3c26",
+        },
+        {
+          title: "ISC2 Candidate",
+          company: "ISC",
+          company_url: "https://www.credly.com/badges/22569211-8861-40a6-b249-101406d13fdd",
+          logo_path: "isc.png",
+          duration: "Dec 2023 - Dec 2024",
+          location: "Online",
+          description:
+            "I've just been awarded the Cybersecurity Certification badge! 🎉 This recognition marks a significant milestone in my journey towards mastering cybersecurity practices.",
           color: "#ee3c26",
         },
       ],
