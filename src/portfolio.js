@@ -212,6 +212,15 @@ const certifications = {
       color_code: "#E2405F",
     },
     {
+      title: "Fortinet Certified Fundamentals Cybersecurity",
+      subtitle: "Fortinet Cybersecurity",
+      logo_path: "cyber.png",
+      certificate_link:
+        "https://www.credly.com/badges/8a11f74c-85f4-451c-a2eb-c73e9d429999",
+      alt_name: "Cyber Security",
+      color_code: "#E2405F",
+    },
+    {
       title: "Cloud Ninja",
       subtitle: "Micosoft Defender For Cloud",
       logo_path: "Ninja.png",
