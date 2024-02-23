@@ -214,7 +214,7 @@ const certifications = {
     {
       title: "Fortinet Certified Fundamentals Cybersecurity",
       subtitle: "Fortinet Cybersecurity",
-      logo_path: "cyber.png",
+      logo_path: "fortinet-certified-fundamentals-cybersecurity.png",
       certificate_link:
         "https://www.credly.com/badges/8a11f74c-85f4-451c-a2eb-c73e9d429999",
       alt_name: "Cyber Security",
