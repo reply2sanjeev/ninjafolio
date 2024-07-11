@@ -230,6 +230,16 @@ const certifications = {
       // color_code: "#F6B808",
       color_code: "#47A048",
     },
+     {
+      title: "Sentinel Ninja",
+      subtitle: "Micosoft Defender For Cloud",
+      logo_path: "sentinal.png",
+      certificate_link:
+        "https://drive.google.com/file/d/1uL68KWR4d9reTxXZIqIaERYElal8e8FJ/view?usp=sharing",
+      alt_name: "Micosoft Sentinel Ninja",
+      // color_code: "#F6B808",
+      color_code: "#47A048",
+    },
     {
       title: "Oracle Cloud Infrastructure Foundations 2021 Certified Associate",
       subtitle: "Oracle Cloud",
