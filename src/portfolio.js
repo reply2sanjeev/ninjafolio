@@ -232,7 +232,7 @@ const certifications = {
     },
      {
       title: "Sentinel Ninja",
-      subtitle: "Micosoft Defender For Cloud",
+      subtitle: "Micosoft Sentinel Ninja",
       logo_path: "sentinal.png",
       certificate_link:
         "https://drive.google.com/file/d/1uL68KWR4d9reTxXZIqIaERYElal8e8FJ/view?usp=sharing",
