@@ -189,7 +189,7 @@ const certifications = {
       subtitle: "Microsoft",
       logo_path: "azsec.png",
       certificate_link:
-        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/E87EF8A959ABDE48?sharingId=21537036736891C7",
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/31DC2A83C59FFA43?sharingId=21537036736891C7",
       alt_name: "Azure Security Engineer Associate",
       // color_code: "#2AAFED",
       color_code: "#47A048",
@@ -200,7 +200,7 @@ const certifications = {
       subtitle: "Microsoft",
       logo_path: "iai.png",
       certificate_link:
-        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/E87EF8A959ABDE48?sharingId=21537036736891C7",
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/2605A900671AE884?sharingId=21537036736891C7",
       alt_name: "Identity and Access Administrator Associate",
       // color_code: "#2AAFED",
       color_code: "#47A048",
