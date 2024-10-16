@@ -184,6 +184,57 @@ const certifications = {
       // color_code: "#2AAFED",
       color_code: "#47A048",
     },
+      {
+      title: "AZ-500: Azure Security Engineer Associate",
+      subtitle: "Microsoft",
+      logo_path: "azsec.png",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/E87EF8A959ABDE48?sharingId=21537036736891C7",
+      alt_name: "Azure Security Engineer Associate",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
+
+        {
+      title: "SC-300: Identity and Access Administrator Associate",
+      subtitle: "Microsoft",
+      logo_path: "iai.png",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/E87EF8A959ABDE48?sharingId=21537036736891C7",
+      alt_name: "Identity and Access Administrator Associate",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
+        {
+      title: "Cloud Ninja",
+      subtitle: "Micosoft Defender For Cloud",
+      logo_path: "Ninja.png",
+      certificate_link:
+        "https://drive.google.com/file/d/1dnXzW-IAMcoqTWSoTbNiI9_13cKiDnZQ/view?usp=share_link",
+      alt_name: "Micosoft Defender For Cloud",
+      // color_code: "#F6B808",
+      color_code: "#47A048",
+    },
+     {
+      title: "Sentinel Ninja",
+      subtitle: "Micosoft Sentinel Ninja",
+      logo_path: "sentinal.png",
+      certificate_link:
+        "https://drive.google.com/file/d/1uL68KWR4d9reTxXZIqIaERYElal8e8FJ/view?usp=sharing",
+      alt_name: "Micosoft Sentinel Ninja",
+      // color_code: "#F6B808",
+      color_code: "#47A048",
+    },
+         {
+      title: "Microsoft Defender for Identity Ninja",
+      subtitle: "Microsoft Defender for Identity Ninja",
+      logo_path: "IDEN.png",
+      certificate_link:
+        "https://drive.google.com/file/d/1QSlVAH0sMTtKDqU40YwfGQ6dNaVKJyYr/view?usp=sharing",
+      alt_name: "Microsoft Defender for Identity Ninja",
+      // color_code: "#F6B808",
+      color_code: "#47A048",
+    },
     {
       title: "Microsoft Security: Who Hacked? Challenge",
       subtitle: "CLOUD SKILLS CHALLENGE",
@@ -220,26 +271,7 @@ const certifications = {
       alt_name: "Cyber Security",
       color_code: "#E2405F",
     },
-    {
-      title: "Cloud Ninja",
-      subtitle: "Micosoft Defender For Cloud",
-      logo_path: "Ninja.png",
-      certificate_link:
-        "https://drive.google.com/file/d/1dnXzW-IAMcoqTWSoTbNiI9_13cKiDnZQ/view?usp=share_link",
-      alt_name: "Micosoft Defender For Cloud",
-      // color_code: "#F6B808",
-      color_code: "#47A048",
-    },
-     {
-      title: "Sentinel Ninja",
-      subtitle: "Micosoft Sentinel Ninja",
-      logo_path: "sentinal.png",
-      certificate_link:
-        "https://drive.google.com/file/d/1uL68KWR4d9reTxXZIqIaERYElal8e8FJ/view?usp=sharing",
-      alt_name: "Micosoft Sentinel Ninja",
-      // color_code: "#F6B808",
-      color_code: "#47A048",
-    },
+
     {
       title: "Oracle Cloud Infrastructure Foundations 2021 Certified Associate",
       subtitle: "Oracle Cloud",
