@@ -678,7 +678,7 @@ const publications = {
 const contactPageData = {
   contactSection: {
     title: "Contact Me",
-    profile_image_path: "ninjaone.jpg",
+    profile_image_path: "ninjaone1.jpg",
     description:
       "I am the 'Automation Guru' - even your breakfast is probably served by robots! 🤖. Sanjeev Kumar Rana, the Cloud Specialist extraordinaire! 🚀  I like a tech chameleon adapting with the times. My passion for continuous learning and automation is a superpower, making processes smoother than ever! 💻🤖 Problem-solving is my middle name, and staying ahead of the tech game is my secret weapon. Together, we'll conquer the cloud and drive DevOps success in our organization. Let's innovate and create a tech revolution! 🌟😄.",
   },
