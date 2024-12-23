@@ -235,6 +235,16 @@ const certifications = {
       // color_code: "#F6B808",
       color_code: "#47A048",
     },
+       {
+      title: "Azure Network Security Ninja",
+      subtitle: "Azure Network Security Ninja",
+      logo_path: "ninjana.png",
+      certificate_link:
+        "https://drive.google.com/file/d/1EUABjVu-rFPP7LI1QfFbPuJGuxik2PTm/view?usp=sharing",
+      alt_name: "Azure Network Security Ninja",
+      // color_code: "#F6B808",
+      color_code: "#47A048",
+    },
      {
       title: "Sentinel Ninja",
       subtitle: "Micosoft Sentinel Ninja",
