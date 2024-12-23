@@ -205,6 +205,26 @@ const certifications = {
       // color_code: "#2AAFED",
       color_code: "#47A048",
     },
+            {
+      title: "SC-200: Security Operations Analyst Associate",
+      subtitle: "Microsoft",
+      logo_path: "azso.jpg",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/9F9CA9435ADAEC71?sharingId=21537036736891C7",
+      alt_name: "Security Operations Analyst Associate",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
+            {
+      title: "SC-400: Information Protection and Compliance Administrator Associate",
+      subtitle: "Microsoft",
+      logo_path: "azipa.png",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/8B3B8CAAA228B2C1?sharingId=21537036736891C7",
+      alt_name: "Information Protection and Compliance Administrator Associate",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
         {
       title: "Cloud Ninja",
       subtitle: "Micosoft Defender For Cloud",
