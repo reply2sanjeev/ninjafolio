@@ -218,7 +218,7 @@ const certifications = {
             {
       title: "SC-400: Information Protection and Compliance Administrator Associate",
       subtitle: "Microsoft",
-      logo_path: "azipa.png",
+      logo_path: "azipa.jpg",
       certificate_link:
         "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/8B3B8CAAA228B2C1?sharingId=21537036736891C7",
       alt_name: "Information Protection and Compliance Administrator Associate",
