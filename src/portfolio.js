@@ -23,7 +23,7 @@ const greeting = {
   logo_name: "SanjeevRana",
   nickname: "Azure_Ninja",
   subTitle:
-  " Tech wizard alert! Watch out clouds, Sanjeev is taking over! ☁️✨.Dedicated and passionate Microsoft Cloud Specialist in Azure Cloud and DevOps Engineer with a relentless commitment to developing end-to-end products. Specialized in architecting sustainable and scalable social and technical systems within Azure Cloud, aiming to create meaningful impact through innovative solutions.",
+  " Tech wizard Alert! Watch out clouds, Sanjeev is taking over! ☁️✨.Dedicated and passionate Microsoft Cloud Specialist in Azure Cloud and DevOps Engineer with a relentless commitment to developing end-to-end products. Specialized in architecting sustainable and scalable social and technical systems within Azure Cloud, aiming to create meaningful impact through innovative solutions.",
  
  
 
