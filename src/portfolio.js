@@ -225,7 +225,7 @@ const certifications = {
       // color_code: "#2AAFED",
       color_code: "#47A048",
     },
-    {
+        {
       title: "AZ-400: Microsoft Certified: DevOps Engineer Expert",
       subtitle: "Microsoft",
       logo_path: "devops.png",
@@ -265,7 +265,7 @@ const certifications = {
       // color_code: "#F6B808",
       color_code: "#47A048",
     },
-     {
+        {
       title: "Sentinel Ninja",
       subtitle: "Micosoft Sentinel Ninja",
       logo_path: "sentinal.png",
@@ -394,7 +394,7 @@ const certifications = {
         "https://drive.google.com/file/d/17cjm7HXIYw0tYpvXMM0yh8rDDyLgl5du/view?usp=sharing",
       alt_name: "ISEA",
       color_code: "#2AAFED",
-    },
+    }
     //{
     //  title: "MLH Local Hack Day: Build",
      // subtitle: "Major League Hacking",
