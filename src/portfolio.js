@@ -225,6 +225,26 @@ const certifications = {
       // color_code: "#2AAFED",
       color_code: "#47A048",
     },
+    {
+      title: "AZ-400: Microsoft Certified: DevOps Engineer Expert",
+      subtitle: "Microsoft",
+      logo_path: "devops.png",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/814DEF357ADDF4C2?sharingId=21537036736891C7",
+      alt_name: "DevOps Engineer Expert",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
+          {
+      title: "DP-700: Microsoft Certified Fabric Data Engineer Associate",
+      subtitle: "Microsoft",
+      logo_path: "fde.png",
+      certificate_link:
+        "https://learn.microsoft.com/api/credentials/share/en-us/RanaSanjeev/29ECC49E65EEAC16?sharingId=21537036736891C7",
+      alt_name: "Microsoft Certified Fabric Data Engineer Associate",
+      // color_code: "#2AAFED",
+      color_code: "#47A048",
+    },
         {
       title: "Cloud Ninja",
       subtitle: "Micosoft Defender For Cloud",
@@ -356,87 +376,6 @@ const certifications = {
       alt_name: "Scrum",
       // color_code: "#f36c3d",
       color_code: "#fffbf3",
-    },
-    {
-      title: "OPSWAT Introduction to Critical Infrastructure Protection (ICIP)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "ICIP.png",
-      certificate_link:
-        "https://www.credly.com/badges/e7f6bf66-496b-4d8a-a0a3-7e6d6a60c6f6",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT File Security Associate (OFSA)",
-      subtitle: "OFSA",
-      logo_path: "OFSA.png",
-      certificate_link:
-        "https://www.credly.com/badges/04e07cd4-534d-4c3f-83b3-8ec9c96286d3",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Network Security Associate (ONSA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "ONSA.png",
-      certificate_link:
-        "https://www.credly.com/badges/3b477fdb-71cf-4a88-8cc7-f03bc4603ed8",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Web Traffic Protection Associate (OWPA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "OWPA.png",
-      certificate_link:
-        "https://www.credly.com/badges/105e7fab-6734-4975-a57e-030d1b9fba36",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Secure Storage Associate (OSSA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "OSSA.png",
-      certificate_link:
-        "https://www.credly.com/badges/04fd1735-f485-44af-8d78-bffa903d0d25",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Legacy System Associate (OLSA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "OLSA.png",
-      certificate_link:
-        "https://www.credly.com/badges/12ccc0d8-133e-4a9a-993a-ae090f461dcb",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Email Security Associate (OESA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "OESA.png",
-      certificate_link:
-        "https://www.credly.com/badges/7ccd1250-16be-4b48-94ce-52ce2a7a0e64",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Endpoint Compliance Associate (OECA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "OECA.png",
-      certificate_link:
-        "https://www.credly.com/badges/90a954da-60f2-453c-a65d-ff3f60319d61",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
-    },
-    {
-      title: "OPSWAT Data Transfer Security Associate (ODSA)",
-      subtitle: "OPSWAT Academy",
-      logo_path: "ODSA.png",
-      certificate_link:
-        "https://www.credly.com/badges/7107d752-8ca0-48d6-ac0f-13679cff6610",
-      alt_name: "OPSWAT",
-      color_code: "#2AAFED",
     },
     {
       title: "Cyber Offence",
