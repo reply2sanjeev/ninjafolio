@@ -14,7 +14,11 @@ export default function Intro({ onDone }) {
   }, [onDone]);
 
   // Match the blade to the diagonal the two halves are cut along.
-  const angle = Math.atan((0.24 * window.innerHeight) / window.innerWidth) * (180 / Math.PI);
+  // window doesn't exist during the build-time prerender, so fall back to a typical angle there.
+  const angle =
+    typeof window === "undefined"
+      ? 13
+      : Math.atan((0.24 * window.innerHeight) / window.innerWidth) * (180 / Math.PI);
 
   return (
     <div className="intro" onClick={onDone} role="presentation" style={{ "--slash": `-${angle}deg` }}>
