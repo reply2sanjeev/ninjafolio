@@ -36,6 +36,84 @@ export const greeting = {
   githubProfile: "https://github.com/reply2sanjeev",
 };
 
+// Hero query card: one card per tagline above, in the same order.
+// Clicking a role chip (or the auto-rotate) types out that role's card.
+export const heroCards = [
+  {
+    head: "Hunting query",
+    tool: "Microsoft Sentinel",
+    label: "Sentinel-style query that returns Sanjeev's profile",
+    lines: [
+      "SecurityOperators",
+      `| where Alias == "${greeting.alias}"`,
+      "| project Name, Role, Base, ActiveSince",
+    ],
+    record: [
+      ["Name", greeting.name],
+      ["Role", greeting.role],
+      ["Base", greeting.base],
+      ["ActiveSince", greeting.activeSince],
+    ],
+    meta: "1 record · completed",
+  },
+  {
+    head: "Pipeline run",
+    tool: "Azure DevOps",
+    label: "Azure DevOps pipeline that summarises Sanjeev's DevOps work",
+    lines: [
+      "trigger: [ main ]",
+      "stages:",
+      "- stage: Build      # bicep lint, tests",
+      "- stage: Validate   # what-if, policy",
+      "- stage: Deploy     # approval gate → prod",
+    ],
+    record: [
+      ["Pipeline", "landing-zone-iac"],
+      ["Owner", greeting.name],
+      ["Stages", "Build ✓  Validate ✓  Deploy ✓"],
+      ["Practice", "IaC · GitOps · gated releases"],
+    ],
+    meta: "run succeeded · 3 of 3 stages",
+  },
+  {
+    head: "Resource Graph query",
+    tool: "Azure Resource Graph",
+    label: "Resource Graph query that summarises Sanjeev's transformation work",
+    lines: [
+      "resources",
+      '| where tags.managedBy == "azureninjas"',
+      "| summarize by LandingZone",
+      "| project Estate, Approach, IaC, Governance",
+    ],
+    record: [
+      ["Estate", "Azure · Microsoft 365"],
+      ["Approach", "Assess → Migrate → Harden → Automate"],
+      ["IaC", "Bicep · Terraform · ARM"],
+      ["Governance", "Azure Policy · Lighthouse"],
+    ],
+    meta: "1 record · completed",
+  },
+  {
+    head: "Agent deployment",
+    tool: "Azure AI Foundry",
+    label: "Azure AI Foundry agent definition that summarises Sanjeev's AI work",
+    lines: [
+      "agent = project.agents.create_agent(",
+      '    model="gpt-4o",',
+      '    name="ninja-ops-agent",',
+      '    instructions="Triage alerts, draft fixes",',
+      "    tools=[ai_search, code_interpreter])",
+    ],
+    record: [
+      ["Agent", "ninja-ops-agent"],
+      ["Focus", "Copilot integrations · AI automation"],
+      ["Grounding", "Azure AI Search · RAG"],
+      ["Status", "Provisioned"],
+    ],
+    meta: "agent ready · 1 deployment",
+  },
+];
+
 export const socialMediaLinks = [
   { name: "GitHub", icon: "github", link: "https://github.com/reply2sanjeev" },
   { name: "LinkedIn", icon: "linkedin", link: "https://www.linkedin.com/in/sanjeev-kumar-50b95954/" },

@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "../hooks";
 
 const GLYPHS = "01<>/\\#$%&*+=?";
-const HOLD = 2600;     // ms each role stays readable
+const HOLD = 5200;     // ms each role stays (long enough for its query card to type out)
 const DECODE = 650;    // ms to decode the next role
 
 // Cycles through roles with a terminal "decode" effect.
-// A row of role chips underneath shows all of them and lets people jump to one.
-export default function Tagline({ items, ready }) {
+// The active index lives in Hero so the query card can follow the selected role.
+export default function Tagline({ items, ready, index, onIndexChange }) {
   const reduced = useReducedMotion();
-  const [index, setIndex] = useState(0);
-  const [text, setText] = useState(items[0]);
+  const [text, setText] = useState(items[index]);
   const [resolving, setResolving] = useState(false);
   const [paused, setPaused] = useState(false);
   const raf = useRef();
@@ -42,9 +41,9 @@ export default function Tagline({ items, ready }) {
   // Auto-advance
   useEffect(() => {
     if (!ready || reduced || paused || items.length < 2) return;
-    const t = setTimeout(() => setIndex((i) => (i + 1) % items.length), HOLD + DECODE);
+    const t = setTimeout(() => onIndexChange((index + 1) % items.length), HOLD + DECODE);
     return () => clearTimeout(t);
-  }, [index, ready, reduced, paused, items.length]);
+  }, [index, ready, reduced, paused, items.length, onIndexChange]);
 
   return (
     <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
@@ -56,7 +55,7 @@ export default function Tagline({ items, ready }) {
       </p>
       <ul className="hero__roles" aria-hidden="true">
         {items.map((r, i) => (
-          <li key={r} aria-current={i === index} onClick={() => setIndex(i)}>
+          <li key={r} aria-current={i === index} onClick={() => onIndexChange(i)}>
             {r}
           </li>
         ))}

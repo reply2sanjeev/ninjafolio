@@ -1,0 +1,292 @@
+diff --git a/src/components/Hero.jsx b/src/components/Hero.jsx
+index 7d09b27..111ace9 100644
+--- a/src/components/Hero.jsx
++++ b/src/components/Hero.jsx
+@@ -1,52 +1,80 @@
+ import { useEffect, useState } from "react";
+-import { greeting, socialMediaLinks } from "../portfolio";
++import { greeting, heroCards, socialMediaLinks } from "../portfolio";
+ import { img } from "../assets";
+ import { useReducedMotion } from "../hooks";
+ import Icon from "./Icon";
+ import Shuriken from "./Shuriken";
+ import Tagline from "./Tagline";
+ 
+-const query = [
+-  "SecurityOperators",
+-  `| where Alias == "${greeting.alias}"`,
+-  "| project Name, Role, Base, ActiveSince",
+-];
+-const fullLength = query.join("\n").length;
++// Light highlighting shared by KQL, YAML and Python: comments, strings, pipes, keywords.
++const TOKENS = /(#.*$|"[^"]*"?|\|(?= )|==|\b(?:where|project|summarize|by|extend|trigger|stages|stage)\b)/;
+ 
+-function Kql({ text }) {
+-  // Light KQL highlighting: pipes, keywords, strings.
++function Code({ text }) {
+   return text.split("\n").map((line, i) => (
+     <div key={i} className="kql__line">
+-      {line.split(/(\|| where | project |"[^"]*"?|==)/).map((tok, j) => {
++      {line.split(TOKENS).map((tok, j) => {
+         if (!tok) return null;
+         let c = "";
+-        if (tok === "|") c = "kql__pipe";
+-        else if (/^ (where|project) $/.test(tok)) c = "kql__kw";
+-        else if (tok.startsWith('"')) c = "kql__str";
++        if (tok.startsWith("#")) c = "kql__cmt";
++        else if (tok === "|") c = "kql__pipe";
+         else if (tok === "==") c = "kql__op";
++        else if (tok.startsWith('"')) c = "kql__str";
++        else if (/^[a-z]+$/.test(tok)) c = "kql__kw";
+         return <span key={j} className={c}>{tok}</span>;
+       })}
+     </div>
+   ));
+ }
+ 
+-export default function Hero({ ready }) {
++// One query card. Hero gives it a new key per role, so typing restarts on every switch.
++function QueryCard({ card, ready }) {
+   const reduced = useReducedMotion();
++  const text = card.lines.join("\n");
+   // Always start at 0 so build-time HTML matches the browser's first render.
+   const [typed, setTyped] = useState(0);
+-  const done = typed >= fullLength;
++  const done = typed >= text.length;
+ 
+   useEffect(() => {
+     if (done) return;
+     // Reduced motion: show the full query at once instead of typing it.
+     if (reduced) {
+-      setTyped(fullLength);
++      setTyped(text.length);
+       return;
+     }
+     if (!ready) return;
+-    const t = setTimeout(() => setTyped((n) => n + 1), typed === 0 ? 400 : 26);
++    const t = setTimeout(() => setTyped((n) => n + 1), typed === 0 ? 300 : 18);
+     return () => clearTimeout(t);
+-  }, [ready, reduced, typed, done]);
++  }, [ready, reduced, typed, done, text.length]);
++
++  return (
++    <div className="kql" aria-label={card.label}>
++      <div className="kql__head">
++        <span>{card.head}</span>
++        <span>{card.tool}</span>
++      </div>
++      <pre className="kql__body">
++        <Code text={text.slice(0, typed)} />
++        {!done && <span className="kql__caret" aria-hidden="true" />}
++      </pre>
++      <div className={`kql__result ${done ? "is-shown" : ""}`}>
++        <dl className="kql__record">
++          {card.record.map(([k, v]) => (
++            <div key={k}>
++              <dt>{k}</dt>
++              <dd>{v}</dd>
++            </div>
++          ))}
++        </dl>
++        <p className="kql__meta">{card.meta}</p>
++      </div>
++    </div>
++  );
++}
++
++export default function Hero({ ready }) {
++  // Which role is selected — drives both the tagline chips and the query card.
++  const [active, setActive] = useState(0);
++  const card = heroCards[active] ?? heroCards[0];
+ 
+   return (
+     <section className="hero" id="top">
+@@ -62,7 +90,7 @@ export default function Hero({ ready }) {
+               <span key={w}>{i > 0 && " "}{w}</span>
+             ))}
+           </h1>
+-          <Tagline items={greeting.taglines} ready={ready} />
++          <Tagline items={greeting.taglines} ready={ready} index={active} onIndexChange={setActive} />
+           <p className="hero__summary">{greeting.summary}</p>
+ 
+           <div className="hero__actions">
+@@ -104,32 +132,7 @@ export default function Hero({ ready }) {
+             </div>
+           </figure>
+ 
+-          <div className="kql" aria-label="Sentinel-style query that returns Sanjeev's profile">
+-            <div className="kql__head">
+-              <span>Hunting query</span>
+-              <span>Microsoft Sentinel</span>
+-            </div>
+-            <pre className="kql__body">
+-              <Kql text={query.join("\n").slice(0, typed)} />
+-              {!done && <span className="kql__caret" aria-hidden="true" />}
+-            </pre>
+-            <div className={`kql__result ${done ? "is-shown" : ""}`}>
+-              <dl className="kql__record">
+-                {[
+-                  ["Name", greeting.name],
+-                  ["Role", greeting.role],
+-                  ["Base", greeting.base],
+-                  ["ActiveSince", greeting.activeSince],
+-                ].map(([k, v]) => (
+-                  <div key={k}>
+-                    <dt>{k}</dt>
+-                    <dd>{v}</dd>
+-                  </div>
+-                ))}
+-              </dl>
+-              <p className="kql__meta">1 record · completed</p>
+-            </div>
+-          </div>
++          <QueryCard key={active} card={card} ready={ready} />
+         </div>
+       </div>
+     </section>
+diff --git a/src/components/Tagline.jsx b/src/components/Tagline.jsx
+index 14edb95..0b72315 100644
+--- a/src/components/Tagline.jsx
++++ b/src/components/Tagline.jsx
+@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from "react";
+ import { useReducedMotion } from "../hooks";
+ 
+ const GLYPHS = "01<>/\\#$%&*+=?";
+-const HOLD = 2600;     // ms each role stays readable
++const HOLD = 5200;     // ms each role stays (long enough for its query card to type out)
+ const DECODE = 650;    // ms to decode the next role
+ 
+ // Cycles through roles with a terminal "decode" effect.
+-// A row of role chips underneath shows all of them and lets people jump to one.
+-export default function Tagline({ items, ready }) {
++// The active index lives in Hero so the query card can follow the selected role.
++export default function Tagline({ items, ready, index, onIndexChange }) {
+   const reduced = useReducedMotion();
+-  const [index, setIndex] = useState(0);
+-  const [text, setText] = useState(items[0]);
++  const [text, setText] = useState(items[index]);
+   const [resolving, setResolving] = useState(false);
+   const [paused, setPaused] = useState(false);
+   const raf = useRef();
+@@ -42,9 +41,9 @@ export default function Tagline({ items, ready }) {
+   // Auto-advance
+   useEffect(() => {
+     if (!ready || reduced || paused || items.length < 2) return;
+-    const t = setTimeout(() => setIndex((i) => (i + 1) % items.length), HOLD + DECODE);
++    const t = setTimeout(() => onIndexChange((index + 1) % items.length), HOLD + DECODE);
+     return () => clearTimeout(t);
+-  }, [index, ready, reduced, paused, items.length]);
++  }, [index, ready, reduced, paused, items.length, onIndexChange]);
+ 
+   return (
+     <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+@@ -56,7 +55,7 @@ export default function Tagline({ items, ready }) {
+       </p>
+       <ul className="hero__roles" aria-hidden="true">
+         {items.map((r, i) => (
+-          <li key={r} aria-current={i === index} onClick={() => setIndex(i)}>
++          <li key={r} aria-current={i === index} onClick={() => onIndexChange(i)}>
+             {r}
+           </li>
+         ))}
+diff --git a/src/portfolio.js b/src/portfolio.js
+index f099582..691e433 100644
+--- a/src/portfolio.js
++++ b/src/portfolio.js
+@@ -36,6 +36,84 @@ export const greeting = {
+   githubProfile: "https://github.com/reply2sanjeev",
+ };
+ 
++// Hero query card: one card per tagline above, in the same order.
++// Clicking a role chip (or the auto-rotate) types out that role's card.
++export const heroCards = [
++  {
++    head: "Hunting query",
++    tool: "Microsoft Sentinel",
++    label: "Sentinel-style query that returns Sanjeev's profile",
++    lines: [
++      "SecurityOperators",
++      `| where Alias == "${greeting.alias}"`,
++      "| project Name, Role, Base, ActiveSince",
++    ],
++    record: [
++      ["Name", greeting.name],
++      ["Role", greeting.role],
++      ["Base", greeting.base],
++      ["ActiveSince", greeting.activeSince],
++    ],
++    meta: "1 record · completed",
++  },
++  {
++    head: "Pipeline run",
++    tool: "Azure DevOps",
++    label: "Azure DevOps pipeline that summarises Sanjeev's DevOps work",
++    lines: [
++      "trigger: [ main ]",
++      "stages:",
++      "- stage: Build      # bicep lint, tests",
++      "- stage: Validate   # what-if, policy",
++      "- stage: Deploy     # approval gate → prod",
++    ],
++    record: [
++      ["Pipeline", "landing-zone-iac"],
++      ["Owner", greeting.name],
++      ["Stages", "Build ✓  Validate ✓  Deploy ✓"],
++      ["Practice", "IaC · GitOps · gated releases"],
++    ],
++    meta: "run succeeded · 3 of 3 stages",
++  },
++  {
++    head: "Resource Graph query",
++    tool: "Azure Resource Graph",
++    label: "Resource Graph query that summarises Sanjeev's transformation work",
++    lines: [
++      "resources",
++      '| where tags.managedBy == "azureninjas"',
++      "| summarize by LandingZone",
++      "| project Estate, Approach, IaC, Governance",
++    ],
++    record: [
++      ["Estate", "Azure · Microsoft 365"],
++      ["Approach", "Assess → Migrate → Harden → Automate"],
++      ["IaC", "Bicep · Terraform · ARM"],
++      ["Governance", "Azure Policy · Lighthouse"],
++    ],
++    meta: "1 record · completed",
++  },
++  {
++    head: "Agent deployment",
++    tool: "Azure AI Foundry",
++    label: "Azure AI Foundry agent definition that summarises Sanjeev's AI work",
++    lines: [
++      "agent = project.agents.create_agent(",
++      '    model="gpt-4o",',
++      '    name="ninja-ops-agent",',
++      '    instructions="Triage alerts, draft fixes",',
++      "    tools=[ai_search, code_interpreter])",
++    ],
++    record: [
++      ["Agent", "ninja-ops-agent"],
++      ["Focus", "Copilot integrations · AI automation"],
++      ["Grounding", "Azure AI Search · RAG"],
++      ["Status", "Provisioned"],
++    ],
++    meta: "agent ready · 1 deployment",
++  },
++];
++
+ export const socialMediaLinks = [
+   { name: "GitHub", icon: "github", link: "https://github.com/reply2sanjeev" },
+   { name: "LinkedIn", icon: "linkedin", link: "https://www.linkedin.com/in/sanjeev-kumar-50b95954/" },
+diff --git a/src/styles.css b/src/styles.css
+index c15afa6..9a6ecef 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -280,6 +280,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
+ .kql__kw { color: var(--azure-hi); }
+ .kql__str { color: #ffb4a8; }
+ .kql__op { color: var(--muted); }
++.kql__cmt { color: var(--muted); font-style: italic; }
+ .kql__caret { display: inline-block; width: .55em; height: 1.1em; background: var(--azure-hi); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+ .kql__result { border-top: 1px solid var(--line); padding: .7rem .9rem .8rem; opacity: 0; transform: translateY(4px); transition: opacity .35s, transform .35s; }
+ .kql__result.is-shown { opacity: 1; transform: none; }

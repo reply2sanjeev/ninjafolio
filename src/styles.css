@@ -280,6 +280,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .kql__kw { color: var(--azure-hi); }
 .kql__str { color: #ffb4a8; }
 .kql__op { color: var(--muted); }
+.kql__cmt { color: var(--muted); font-style: italic; }
 .kql__caret { display: inline-block; width: .55em; height: 1.1em; background: var(--azure-hi); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
 .kql__result { border-top: 1px solid var(--line); padding: .7rem .9rem .8rem; opacity: 0; transform: translateY(4px); transition: opacity .35s, transform .35s; }
 .kql__result.is-shown { opacity: 1; transform: none; }
