@@ -511,7 +511,7 @@ export const degrees = [
 export const contact = {
   photo: "creator-face.webp",
   intro:
-    "Need a landing zone built, a SOC tuned, or an estate moved to Azure without downtime? I lead a team that does this every day for managed-service clients. Send a message and I'll get back to you.",
+    "Need a landing zone built, a SOC tuned or an estate moved to Azure without downtime? I lead a team that does this every day for managed-service clients. Send a message and I'll get back to you.",
   email: "sanjeev.kmr2@gmail.com",
   phone: "+91 9779547807",
   address: "Jee Aayaan Nu, India - 174305",
