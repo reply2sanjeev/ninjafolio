@@ -37,10 +37,14 @@ export const greeting = {
 };
 
 // Hero query card: one card per tagline above, in the same order.
-// Clicking a role chip (or the auto-rotate) types out that role's card.
+// Clicking a role chip (or the auto-rotate) types out that role's card and swaps the photo.
+// If a role's image file is missing, the security photo (creator.webp) is shown instead.
 export const heroCards = [
   {
     head: "Hunting query",
+    image: "creator.webp",          // photo in src/assets/images/
+    feed: "SOC-01 / operator feed",
+    alt: "Sanjeev Rana in a hooded ninja outfit with an Azure mask, at a desk surrounded by security dashboards",
     tool: "Microsoft Sentinel",
     label: "Sentinel-style query that returns Sanjeev's profile",
     lines: [
@@ -58,6 +62,9 @@ export const heroCards = [
   },
   {
     head: "Pipeline run",
+    image: "hero-devops.webp",          // photo in src/assets/images/
+    feed: "PIPE-02 / build agent",
+    alt: "Sanjeev Rana as an Azure DevOps ninja, surrounded by CI/CD pipeline dashboards",
     tool: "Azure DevOps",
     label: "Azure DevOps pipeline that summarises Sanjeev's DevOps work",
     lines: [
@@ -77,6 +84,9 @@ export const heroCards = [
   },
   {
     head: "Resource Graph query",
+    image: "hero-transform.webp",          // photo in src/assets/images/
+    feed: "LZ-03 / estate view",
+    alt: "Sanjeev Rana as a cloud transformation ninja, in front of an Azure landing-zone architecture",
     tool: "Azure Resource Graph",
     label: "Resource Graph query that summarises Sanjeev's transformation work",
     lines: [
@@ -95,6 +105,9 @@ export const heroCards = [
   },
   {
     head: "Agent deployment",
+    image: "hero-ai.webp",          // photo in src/assets/images/
+    feed: "AI-04 / model console",
+    alt: "Sanjeev Rana as an AI engineer ninja, surrounded by Azure AI Foundry agent screens",
     tool: "Azure AI Foundry",
     label: "Azure AI Foundry agent definition that summarises Sanjeev's AI work",
     lines: [

@@ -114,16 +114,23 @@ export default function Hero({ ready }) {
           <Shuriken size={420} className="hero__star" />
           <figure className="feed">
             <div className="feed__bar">
-              <span><span className="live-dot" aria-hidden="true" /> SOC-01 / operator feed</span>
+              <span><span className="live-dot" aria-hidden="true" /> {card.feed}</span>
               <span>IST · UTC+5:30</span>
             </div>
             <div className="feed__frame">
-              <img
-                src={img("creator.webp")}
-                alt="Sanjeev Rana in a hooded ninja outfit with an Azure mask, at a desk surrounded by security dashboards"
-                width="1000"
-                height="1000"
-              />
+              {/* All role photos are stacked; only the active one is visible, so switching crossfades. */}
+              {heroCards.map((c, i) => (
+                <img
+                  key={c.head}
+                  className={`feed__photo ${i === active ? "is-active" : ""}`}
+                  src={img(c.image) ?? img("creator.webp")}
+                  alt={i === active ? c.alt : ""}
+                  aria-hidden={i !== active}
+                  width="1000"
+                  height="1000"
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              ))}
               <span className="feed__scan" aria-hidden="true" />
               <span className="feed__corner feed__corner--tl" aria-hidden="true" />
               <span className="feed__corner feed__corner--tr" aria-hidden="true" />

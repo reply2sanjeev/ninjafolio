@@ -245,6 +245,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .feed__frame { position: relative; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .8), 0 0 0 1px var(--line); }
 .feed__frame img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.feed__photo { opacity: 0; transition: opacity .6s ease; }
+.feed__photo:not(:first-child) { position: absolute; inset: 0; height: 100%; }
+.feed__photo.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .feed__photo { transition: none; } }
 .feed__frame::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .14) 0 1px, transparent 1px 3px);
