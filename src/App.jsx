@@ -13,8 +13,14 @@ import Shuriken from "./components/Shuriken";
 
 export default function App() {
   const reduced = useReducedMotion();
-  const [intro, setIntro] = useState(settings.showIntro && !reduced);
+  // Same starting value at build time and in the browser (no hydration mismatch).
+  const [intro, setIntro] = useState(settings.showIntro);
   const finish = useCallback(() => setIntro(false), []);
+
+  // Skip the intro once we know the visitor prefers reduced motion.
+  useEffect(() => {
+    if (reduced) setIntro(false);
+  }, [reduced]);
 
   useEffect(() => {
     document.title = seo.title;

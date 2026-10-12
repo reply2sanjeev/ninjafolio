@@ -32,11 +32,18 @@ function Kql({ text }) {
 
 export default function Hero({ ready }) {
   const reduced = useReducedMotion();
-  const [typed, setTyped] = useState(reduced ? fullLength : 0);
+  // Always start at 0 so build-time HTML matches the browser's first render.
+  const [typed, setTyped] = useState(0);
   const done = typed >= fullLength;
 
   useEffect(() => {
-    if (!ready || reduced || done) return;
+    if (done) return;
+    // Reduced motion: show the full query at once instead of typing it.
+    if (reduced) {
+      setTyped(fullLength);
+      return;
+    }
+    if (!ready) return;
     const t = setTimeout(() => setTyped((n) => n + 1), typed === 0 ? 400 : 26);
     return () => clearTimeout(t);
   }, [ready, reduced, typed, done]);
@@ -50,8 +57,9 @@ export default function Hero({ ready }) {
             <span className="live-dot" aria-hidden="true" /> {greeting.alias} is on watch
           </p>
           <h1 className="hero__name">
-            {greeting.name.split(" ").map((w) => (
-              <span key={w}>{w}</span>
+            {/* The space keeps the text as "Sanjeev Rana" for crawlers and screen readers */}
+            {greeting.name.split(" ").map((w, i) => (
+              <span key={w}>{i > 0 && " "}{w}</span>
             ))}
           </h1>
           <Tagline items={greeting.taglines} ready={ready} />

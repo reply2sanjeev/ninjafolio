@@ -1,10 +1,13 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import { StrictMode } from "react";
+import { hydrateRoot } from "react-dom/client";
 import App from "./App.jsx";
-import "./styles.css";
+import "./index.css"; // ← keep whatever CSS import(s) your current main.jsx has
 
-createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+// hydrateRoot (not createRoot): React attaches to the pre-rendered HTML
+// instead of throwing it away and re-drawing the page.
+hydrateRoot(
+  document.getElementById("root"),
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
