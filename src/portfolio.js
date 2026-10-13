@@ -33,7 +33,7 @@ export const greeting = {
     "Cloud transformation leader with 10+ years helping organisations modernise. I migrate, harden and automate Microsoft Azure and Microsoft 365 estates for managed-service clients — landing zones, Sentinel and Defender, infrastructure as code, and AI-powered automation.",
   resumeLink:
     "https://drive.google.com/file/d/142RHtGpfFf8Tey9fw5ykpPKFybdACHEA/view?usp=sharing",
-  githubProfile: "https://github.com/reply2sanjeev",
+  githubProfile: "https://github.com/ranasanjeev",
 };
 
 // Hero query card: one card per tagline above, in the same order.
@@ -128,7 +128,7 @@ export const heroCards = [
 ];
 
 export const socialMediaLinks = [
-  { name: "GitHub", icon: "github", link: "https://github.com/reply2sanjeev" },
+  { name: "GitHub", icon: "github", link: "https://github.com/ranasanjeev" },
   { name: "LinkedIn", icon: "linkedin", link: "https://www.linkedin.com/in/sanjeev-kumar-50b95954/" },
   { name: "Email", icon: "mail", link: "mailto:sanjeev.kmr2@gmail.com" },
 ];
