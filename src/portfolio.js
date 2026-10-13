@@ -32,7 +32,7 @@ export const greeting = {
   summary:
     "Cloud transformation leader with 10+ years helping organisations modernise. I migrate, harden and automate Microsoft Azure and Microsoft 365 estates for managed-service clients — landing zones, Sentinel and Defender, infrastructure as code, and AI-powered automation.",
   resumeLink:
-    "https://drive.google.com/file/d/1JbnjaU3Ig5Id_q-hvPIGjwUemWpsLPLb/view?usp=drive_link",
+    "https://drive.google.com/file/d/1JbnjaU3Ig5Id_q-hvPIGjwUemWpsLPLb/view?usp=sharing",
   githubProfile: "https://github.com/ranasanjeev",
 };
 
