@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { keyClick, startDrone, whoosh, speak } from "./introSound";
 import "./HackerScreen.css";
 
 // Lines typed out on the terminal. Edit freely.
@@ -13,6 +14,9 @@ const BOOT_LINES = [
   "sanjeev rana | azure security ninja",
 ];
 
+// What the voice says when someone enters
+const VOICE_LINE = "Access granted. Welcome to the dojo.";
+
 const GLYPHS = "01{}[]()<>=+-*/$#;:azvmrgkvnsgbicepkql".split("");
 const FULL_TEXT = BOOT_LINES.join("\n");
 
@@ -20,7 +24,18 @@ export default function HackerScreen({ onEnter }) {
   const canvasRef = useRef(null);
   const [typed, setTyped] = useState("");
   const [leaving, setLeaving] = useState(false);
+  // "idle" = not started yet, "on" = playing, "muted" = visitor turned it off
+  const [sound, setSound] = useState("idle");
+  const soundRef = useRef(sound);
+  const stopDroneRef = useRef(null);
   const ready = typed.length === FULL_TEXT.length;
+
+  soundRef.current = sound;
+
+  // Load voices early (Chrome loads them async)
+  useEffect(() => {
+    if ("speechSynthesis" in window) window.speechSynthesis.getVoices();
+  }, []);
 
   // Code rain
   useEffect(() => {
@@ -64,19 +79,47 @@ export default function HackerScreen({ onEnter }) {
     };
   }, []);
 
-  // Typewriter
+  // Typewriter (ticks only once sound is on)
   useEffect(() => {
     let i = 0, id;
     const tick = () => {
       i++;
       setTyped(FULL_TEXT.slice(0, i));
-      if (i < FULL_TEXT.length) id = setTimeout(tick, FULL_TEXT[i - 1] === "\n" ? 260 : 16);
+      const ch = FULL_TEXT[i - 1];
+      if (soundRef.current === "on" && ch !== " " && ch !== "\n" && ch !== ".") keyClick();
+      if (i < FULL_TEXT.length) id = setTimeout(tick, ch === "\n" ? 260 : 16);
     };
     id = setTimeout(tick, 500);
     return () => clearTimeout(id);
   }, []);
 
-  // Click / Enter / Space -> fade out, then hand off to the shuriken Intro
+  // Stop the hum when this screen goes away
+  useEffect(() => () => stopDroneRef.current?.(), []);
+
+  const toggleSound = (e) => {
+    e.stopPropagation(); // don't trigger "enter"
+    if (sound === "on") {
+      stopDroneRef.current?.();
+      stopDroneRef.current = null;
+      setSound("muted");
+    } else {
+      stopDroneRef.current = startDrone();
+      setSound("on");
+    }
+  };
+
+  const enter = () => {
+    if (leaving) return;
+    if (sound !== "muted") {
+      whoosh();
+      speak(VOICE_LINE);
+    }
+    stopDroneRef.current?.();
+    stopDroneRef.current = null;
+    setLeaving(true);
+  };
+
+  // Keyboard enter + hand-off to the shuriken Intro
   useEffect(() => {
     if (leaving) {
       const id = setTimeout(onEnter, 350);
@@ -85,17 +128,17 @@ export default function HackerScreen({ onEnter }) {
     const onKey = (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        setLeaving(true);
+        enter();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [leaving, onEnter]);
+  });
 
   return (
     <div
       className={`hs ${leaving ? "hs--leaving" : ""}`}
-      onClick={() => setLeaving(true)}
+      onClick={enter}
       role="button"
       tabIndex={0}
       aria-label="Enter site"
@@ -105,6 +148,15 @@ export default function HackerScreen({ onEnter }) {
         <div className="hs__bar">
           <span /><span /><span />
           <em>ninja@azureninjas: ~</em>
+          <button
+            type="button"
+            className={`hs__sound ${sound === "on" ? "is-on" : ""}`}
+            onClick={toggleSound}
+            onKeyDown={(e) => e.stopPropagation()}
+            aria-pressed={sound === "on"}
+          >
+            {sound === "on" ? "Sound on" : "Sound off"}
+          </button>
         </div>
         <pre className="hs__body">
           {typed.split("\n").map((line, i) => (
