@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { settings, seo, greeting } from "./portfolio";
 import { useReducedMotion } from "./hooks";
+import HackerScreen from "./components/HackerScreen";
 import Intro from "./components/Intro";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -13,22 +14,26 @@ import Shuriken from "./components/Shuriken";
 
 export default function App() {
   const reduced = useReducedMotion();
-  // Same starting value at build time and in the browser (no hydration mismatch).
-  const [intro, setIntro] = useState(settings.showIntro);
-  const finish = useCallback(() => setIntro(false), []);
+  // "hacker" -> "splash" -> "done". Same starting value at build time and in the browser.
+  const [stage, setStage] = useState(settings.showIntro ? "hacker" : "done");
+  const toSplash = useCallback(() => setStage("splash"), []);
+  const finish = useCallback(() => setStage("done"), []);
 
-  // Skip the intro once we know the visitor prefers reduced motion.
+  // Skip both screens once we know the visitor prefers reduced motion.
   useEffect(() => {
-    if (reduced) setIntro(false);
+    if (reduced) setStage("done");
   }, [reduced]);
 
   useEffect(() => {
     document.title = seo.title;
   }, []);
 
+  const intro = stage !== "done";
+
   return (
     <>
-      {intro && <Intro onDone={finish} />}
+      {stage === "hacker" && <HackerScreen onEnter={toSplash} />}
+      {stage === "splash" && <Intro onDone={finish} />}
       <a className="skip" href="#skills">Skip to content</a>
       <Nav />
       <main>

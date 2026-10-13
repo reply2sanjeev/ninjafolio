@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap");
+
+.ni-overlay {
+  --ni-bg: #050b16;
+  --ni-accent: #4cc9ff;
+  --ni-text: #cfe9ff;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--ni-bg);
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+.ni-overlay:focus-visible { outline: 2px solid var(--ni-accent); outline-offset: -4px; }
+.ni-exit { opacity: 0; pointer-events: none; }
+
+/* ---------- Stage 1: terminal ---------- */
+.ni-terminal-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.35s ease;
+}
+.ni-overlay:not(.ni-terminal) .ni-terminal-stage { opacity: 0; }
+
+.ni-rain { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.ni-terminal {
+  position: relative;
+  width: min(680px, 92vw);
+  background: rgba(5, 11, 22, 0.88);
+  border: 1px solid rgba(76, 201, 255, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(76, 201, 255, 0.15);
+  backdrop-filter: blur(2px);
+}
+.ni-terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(76, 201, 255, 0.2);
+}
+.ni-terminal-bar span { width: 10px; height: 10px; border-radius: 50%; background: #2a3448; }
+.ni-terminal-bar em { margin-left: 8px; font-style: normal; font-size: 12px; color: #6b7a93; }
+
+.ni-terminal-body {
+  margin: 0;
+  padding: 18px 20px 8px;
+  min-height: 220px;
+  font-size: clamp(12px, 2.6vw, 15px);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ni-text);
+}
+.ni-cmd { color: var(--ni-accent); }
+.ni-log { color: #7f8ea8; }
+.ni-out { color: #ffffff; font-weight: 600; }
+.ni-caret { color: var(--ni-accent); animation: ni-blink 1s steps(1) infinite; }
+
+.ni-enter {
+  margin: 0;
+  padding: 10px 20px 18px;
+  font-size: 13px;
+  color: var(--ni-accent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ni-enter.is-ready { opacity: 1; animation: ni-pulse 1.8s ease-in-out infinite; }
+
+/* ---------- Stage 2: shuriken splash ---------- */
+.ni-splash { position: absolute; inset: 0; display: grid; place-items: center; }
+
+.ni-shuriken {
+  width: clamp(120px, 14vw, 230px);
+  filter: drop-shadow(0 0 18px rgba(40, 110, 200, 0.55));
+  animation: ni-fly 2s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+
+.ni-trail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60vw;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(160, 200, 255, 0.5), transparent);
+  transform-origin: left center;
+  transform: rotate(-8deg);
+  animation: ni-trail 2s ease forwards;
+}
+
+@keyframes ni-fly {
+  0%   { transform: translate(70vw, -12vh) rotate(0deg) scale(0.6); opacity: 0; }
+  10%  { opacity: 1; }
+  55%  { transform: translate(0, 0) rotate(1080deg) scale(1); }
+  75%  { transform: translate(0, 0) rotate(1260deg) scale(1); opacity: 1; }
+  100% { transform: translate(0, 0) rotate(1440deg) scale(26); opacity: 0; }
+}
+@keyframes ni-trail {
+  0%   { opacity: 0; transform: rotate(-8deg) scaleX(1); }
+  20%  { opacity: 1; }
+  55%  { opacity: 0.8; transform: rotate(-8deg) scaleX(1); }
+  80%  { opacity: 0; transform: rotate(-8deg) scaleX(0.2); }
+  100% { opacity: 0; }
+}
+@keyframes ni-blink { 50% { opacity: 0; } }
+@keyframes ni-pulse { 50% { opacity: 0.45; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ni-shuriken, .ni-trail, .ni-caret, .ni-enter.is-ready { animation: none; }
+}
