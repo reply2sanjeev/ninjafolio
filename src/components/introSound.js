@@ -90,3 +90,24 @@ export function speak(text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+
+// Short terminal blip at the end of each line
+export function blip(freq = 880) {
+  const c = getCtx();
+  const t = c.currentTime;
+  const o = c.createOscillator();
+  o.type = "square";
+  o.frequency.setValueAtTime(freq, t);
+  const g = c.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(0.05, t + 0.005);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
+  o.connect(g).connect(c.destination);
+  o.start(t);
+  o.stop(t + 0.1);
+}
+
+// Unlocks audio inside a click/keypress (required by browsers)
+export function unlockAudio() {
+  getCtx();
+}

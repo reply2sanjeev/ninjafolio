@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { keyClick, startDrone, whoosh, speak } from "./introSound";
+import { keyClick, startDrone, whoosh, speak, blip, unlockAudio } from "./introSound";
 import "./HackerScreen.css";
 
 // Lines typed out on the terminal. Edit freely.
@@ -14,23 +14,24 @@ const BOOT_LINES = [
   "sanjeev rana | azure security ninja",
 ];
 
-// What the voice says when someone enters
-const VOICE_LINE = "Access granted. Welcome to the dojo.";
+// Voice lines
+const BOOT_VOICE = "Initializing secure connection.";
+const ENTER_VOICE = "Access granted. Welcome to the dojo.";
 
 const GLYPHS = "01{}[]()<>=+-*/$#;:azvmrgkvnsgbicepkql".split("");
 const FULL_TEXT = BOOT_LINES.join("\n");
 
 export default function HackerScreen({ onEnter }) {
   const canvasRef = useRef(null);
+  const [booted, setBooted] = useState(false);
   const [typed, setTyped] = useState("");
   const [leaving, setLeaving] = useState(false);
-  // "idle" = not started yet, "on" = playing, "muted" = visitor turned it off
-  const [sound, setSound] = useState("idle");
-  const soundRef = useRef(sound);
+  const [muted, setMuted] = useState(false);
+  const mutedRef = useRef(muted);
   const stopDroneRef = useRef(null);
   const ready = typed.length === FULL_TEXT.length;
 
-  soundRef.current = sound;
+  mutedRef.current = muted;
 
   // Load voices early (Chrome loads them async)
   useEffect(() => {
@@ -79,47 +80,66 @@ export default function HackerScreen({ onEnter }) {
     };
   }, []);
 
-  // Typewriter (ticks only once sound is on)
+  // Typewriter with key clicks, starts after boot
   useEffect(() => {
+    if (!booted) return;
     let i = 0, id;
     const tick = () => {
       i++;
       setTyped(FULL_TEXT.slice(0, i));
       const ch = FULL_TEXT[i - 1];
-      if (soundRef.current === "on" && ch !== " " && ch !== "\n" && ch !== ".") keyClick();
-      if (i < FULL_TEXT.length) id = setTimeout(tick, ch === "\n" ? 260 : 16);
+      const next = FULL_TEXT[i];
+      if (!mutedRef.current) {
+        if (next === "\n" || next === undefined) blip(next === undefined ? 1320 : 880);
+        else if (ch !== " " && ch !== "\n" && ch !== ".") keyClick();
+      }
+      if (i < FULL_TEXT.length) id = setTimeout(tick, ch === "\n" ? 300 : 28);
     };
-    id = setTimeout(tick, 500);
+    id = setTimeout(tick, 700);
     return () => clearTimeout(id);
-  }, []);
+  }, [booted]);
 
   // Stop the hum when this screen goes away
   useEffect(() => () => stopDroneRef.current?.(), []);
 
-  const toggleSound = (e) => {
-    e.stopPropagation(); // don't trigger "enter"
-    if (sound === "on") {
-      stopDroneRef.current?.();
-      stopDroneRef.current = null;
-      setSound("muted");
-    } else {
+  const boot = () => {
+    unlockAudio(); // first click unlocks browser audio
+    if (!muted) {
       stopDroneRef.current = startDrone();
-      setSound("on");
+      speak(BOOT_VOICE);
     }
+    setBooted(true);
   };
 
   const enter = () => {
     if (leaving) return;
-    if (sound !== "muted") {
+    if (!muted) {
       whoosh();
-      speak(VOICE_LINE);
+      speak(ENTER_VOICE);
     }
     stopDroneRef.current?.();
     stopDroneRef.current = null;
     setLeaving(true);
   };
 
-  // Keyboard enter + hand-off to the shuriken Intro
+  // First click boots, next click enters
+  const handleAction = () => (booted ? enter() : boot());
+
+  const toggleSound = (e) => {
+    e.stopPropagation();
+    unlockAudio();
+    if (muted) {
+      if (booted && !leaving) stopDroneRef.current = startDrone();
+      setMuted(false);
+    } else {
+      stopDroneRef.current?.();
+      stopDroneRef.current = null;
+      window.speechSynthesis?.cancel();
+      setMuted(true);
+    }
+  };
+
+  // Keyboard + hand-off to the shuriken Intro
   useEffect(() => {
     if (leaving) {
       const id = setTimeout(onEnter, 350);
@@ -128,7 +148,7 @@ export default function HackerScreen({ onEnter }) {
     const onKey = (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        enter();
+        handleAction();
       }
     };
     window.addEventListener("keydown", onKey);
@@ -138,10 +158,10 @@ export default function HackerScreen({ onEnter }) {
   return (
     <div
       className={`hs ${leaving ? "hs--leaving" : ""}`}
-      onClick={enter}
+      onClick={handleAction}
       role="button"
       tabIndex={0}
-      aria-label="Enter site"
+      aria-label={booted ? "Enter site" : "Start"}
     >
       <canvas ref={canvasRef} className="hs__rain" />
       <div className="hs__terminal">
@@ -150,27 +170,31 @@ export default function HackerScreen({ onEnter }) {
           <em>ninja@azureninjas: ~</em>
           <button
             type="button"
-            className={`hs__sound ${sound === "on" ? "is-on" : ""}`}
+            className={`hs__sound ${!muted ? "is-on" : ""}`}
             onClick={toggleSound}
             onKeyDown={(e) => e.stopPropagation()}
-            aria-pressed={sound === "on"}
+            aria-pressed={!muted}
           >
-            {sound === "on" ? "Sound on" : "Sound off"}
+            {muted ? "Sound off" : "Sound on"}
           </button>
         </div>
         <pre className="hs__body">
-          {typed.split("\n").map((line, i) => (
-            <div
-              key={i}
-              className={line.startsWith("$") ? "hs__cmd" : line.startsWith(">") ? "hs__log" : "hs__out"}
-            >
-              {line}
-            </div>
-          ))}
+          {!booted ? (
+            <div className="hs__log">&gt; system locked</div>
+          ) : (
+            typed.split("\n").map((line, i) => (
+              <div
+                key={i}
+                className={line.startsWith("$") ? "hs__cmd" : line.startsWith(">") ? "hs__log" : "hs__out"}
+              >
+                {line}
+              </div>
+            ))
+          )}
           <span className="hs__caret">█</span>
         </pre>
-        <p className={`hs__enter ${ready ? "is-ready" : ""}`}>
-          Click anywhere or press Enter to continue
+        <p className={`hs__enter ${!booted || ready ? "is-ready" : ""}`}>
+          {booted ? "Click anywhere or press Enter to continue" : "Click anywhere or press Enter to start"}
         </p>
       </div>
     </div>
