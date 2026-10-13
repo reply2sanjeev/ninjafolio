@@ -16,7 +16,7 @@ const BOOT_LINES = [
 
 // Voice lines
 const BOOT_VOICE = "Initializing secure connection.";
-const ENTER_VOICE = "Access granted. Welcome to the dojo.";
+const ENTER_VOICE = "Access granted. Welcome to the Azure Ninjas World.";
 
 const GLYPHS = "01{}[]()<>=+-*/$#;:azvmrgkvnsgbicepkql".split("");
 const FULL_TEXT = BOOT_LINES.join("\n");
