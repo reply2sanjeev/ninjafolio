@@ -17,7 +17,7 @@ npm run preview    # serve dist/ locally to check it
 Azure Static Web Apps, Azure Storage static website, or an IIS site as-is.
 A prebuilt `dist/` is included in this package.
 
-- GitHub Pages: `npm run deploy` (publishes dist/ to the gh-pages branch; public/CNAME is set to www.azureninjas.in)
+- GitHub Pages: `npm run deploy` (publishes dist/ to the gh-pages branch; public/CNAME)
 - IIS: copy the contents of dist/ into the site root. No URL rewrite is needed — the site is a single page with #anchors.
 
 ## Edit content
